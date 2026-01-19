@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "private": "npx ts-node src/private-variables/driver.ts",
+    "decorators": "npx ts-node src/decorators/driver.ts"
   },
   "keywords": [],
   "author": "",
