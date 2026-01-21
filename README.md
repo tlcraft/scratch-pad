@@ -8,7 +8,7 @@ A repo to play with different concepts and ideas in various languages.
 
 ## Python Notes
 
-Change directoring into `python` from the root of this project:
+Change directories into `python` from the root of this project:
 
 ```bash
 cd python
