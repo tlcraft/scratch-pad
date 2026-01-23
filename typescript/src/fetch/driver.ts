@@ -7,7 +7,7 @@
 const LIMIT = 5;
 
 const httpRequestDriver = async () => {
-    const response = await makeHttpRequest("https://www.reddit.com/r/sanfrancisco.json", "GET");
+    const response = await makeHttpRequest("https://www.reddit.com/r/sanfrancisco.json", HttpMethod.GET);
     const json = await response.json();
     const posts = processRedditData(json);
 
@@ -15,7 +15,7 @@ const httpRequestDriver = async () => {
     topPosts.forEach(post => console.log(post.title, post.ups));
 };
 
-const makeHttpRequest = async (url: string, method: string): Promise<Response> => {
+const makeHttpRequest = async (url: string, method: HttpMethod): Promise<Response> => {
     const response = await fetch(url, {
         "method": method
     });
@@ -25,6 +25,13 @@ const makeHttpRequest = async (url: string, method: string): Promise<Response> =
 
     return response;
 };
+
+enum HttpMethod {
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    DELETE = "DELETE"
+}
 
 const processRedditData = (json: RedditData): any[] => {
     if (json) {
