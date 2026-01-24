@@ -5,9 +5,10 @@
  */
 
 const LIMIT = 5;
+const URL = "https://www.reddit.com/r/sanfrancisco.json";
 
-const httpRequestDriver = async () => {
-    const response = await makeHttpRequest("https://www.reddit.com/r/sanfrancisco.json", HttpMethod.GET);
+const redditRequestDriver = async (url: string) => {
+    const response = await makeHttpRequest(url, HttpMethod.GET);
     const json = await response.json();
     const posts = processRedditData(json);
 
@@ -68,4 +69,4 @@ interface RedditData {
     }
 }
 
-httpRequestDriver().then(() => console.log("\nDone."));
+redditRequestDriver(URL).then(() => console.log("\nDone."));
