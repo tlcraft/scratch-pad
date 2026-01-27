@@ -9,7 +9,7 @@ A repo to play with different concepts and ideas in various languages.
 
 ## Python Notes
 
-Change directories into `python` from the root of this project:
+Change into the `python` directory from the root of this project:
 
 ```bash
 cd python
@@ -48,7 +48,7 @@ deactivate
 
 ## TypeScript Notes
 
-Change directories into the `typescript` directory from the root of this project:
+Change into the `typescript` directory from the root of this project:
 
 ```bash
 cd typescript
