@@ -1,3 +1,21 @@
+/*
+    Given two number arrays of equal lengths with numbers of equal digit lengths,
+    calculate the number of changes to make to each number to make them equal.
+
+    nums1 = [123, 456]
+    nums2 = [321, 759]
+
+    Difference between 1 and 3 = 2
+    Difference between 2 and 2 = 0
+    Difference between 3 and 1 = 2
+
+    Difference between 4 and 7 = 3
+    Difference between 5 and 5 = 0
+    Difference between 6 and 9 = 3
+
+    Total = 2 + 0 + 2 + 3 + 0 + 3 = 10
+ */
+
 const countStepsBetweenNumbers = (nums1: number[], nums2: number[]): number => {
     if (nums1.length !== nums2.length) {
         throw new Error("Arrays must be of equal length.");
