@@ -47,7 +47,6 @@ if (require.main === module) {
     const nums2 = [321, 759];
 
     const totalSteps = countStepsBetweenNumbers(nums1, nums2);
-
     console.log(`Total steps needed: ${totalSteps}`);
 
 
@@ -55,6 +54,12 @@ if (require.main === module) {
     const nums4 = [4321, 4325];
 
     const totalSteps2 = countStepsBetweenNumbers(nums3, nums4);
-
     console.log(`Total steps needed for the second set: ${totalSteps2}`);
+
+
+    const nums5 = [1];
+    const nums6 = [3];
+
+    const totalSteps3 = countStepsBetweenNumbers(nums5, nums6);
+    console.log(`Total steps needed for the third set: ${totalSteps3}`);
 }
