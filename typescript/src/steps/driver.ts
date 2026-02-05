@@ -49,4 +49,12 @@ if (require.main === module) {
     const totalSteps = countStepsBetweenNumbers(nums1, nums2);
 
     console.log(`Total steps needed: ${totalSteps}`);
+
+
+    const nums3 = [1234, 1234];
+    const nums4 = [4321, 4325];
+
+    const totalSteps2 = countStepsBetweenNumbers(nums3, nums4);
+
+    console.log(`Total steps needed for the second set: ${totalSteps2}`);
 }
