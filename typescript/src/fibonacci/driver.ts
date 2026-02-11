@@ -20,4 +20,7 @@ if (require.main === module) {
 
     const sequence = fibonacci(5);
     console.log('Output: ', sequence);
+
+    const anotherSequence = fibonacci(20);
+    console.log('Another Output: ', anotherSequence);
 }
