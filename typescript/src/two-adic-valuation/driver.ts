@@ -18,4 +18,13 @@ const twoAdicValuation = (num: number): number[] => {
 
 if (require.main === module) {
     console.log("Two-adic valuation driver not yet implemented.");
+
+    const num1 = 24;
+    const num2 = 48;
+    
+    const valuations1 = twoAdicValuation(num1);
+    const valuations2 = twoAdicValuation(num2);
+
+    console.log(`Valuations for ${num1}:`, valuations1);
+    console.log(`Valuations for ${num2}:`, valuations2);
 }
