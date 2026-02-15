@@ -27,4 +27,7 @@ if (require.main === module) {
 
     console.log(`Valuations for ${num1}:`, valuations1);
     console.log(`Valuations for ${num2}:`, valuations2);
+
+    const duplicates = valuations1.filter(valuation => valuations2.includes(valuation));
+    console.log(`Number of duplicates: ${duplicates.length}`);
 }
