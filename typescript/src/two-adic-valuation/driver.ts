@@ -16,6 +16,12 @@ const twoAdicValuation = (num: number): number[] => {
     return valuations;
 }
 
+const countDuplicates = (list1: number[], list2: number[]): number => {
+    const duplicates = list1.filter(valuation => list2.includes(valuation));
+    console.log(`Number of duplicates: ${duplicates.length}`);
+    return duplicates.length;
+}
+
 if (require.main === module) {
     console.log("Two-adic valuation driver not yet implemented.");
 
@@ -28,6 +34,6 @@ if (require.main === module) {
     console.log(`Valuations for ${num1}:`, valuations1);
     console.log(`Valuations for ${num2}:`, valuations2);
 
-    const duplicates = valuations1.filter(valuation => valuations2.includes(valuation));
-    console.log(`Number of duplicates: ${duplicates.length}`);
+    const duplicates = countDuplicates(valuations1, valuations2);
+    console.log(`Total duplicates between ${num1} and ${num2}:`, duplicates);
 }
