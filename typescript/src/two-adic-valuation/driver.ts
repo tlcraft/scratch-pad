@@ -22,12 +22,7 @@ const countDuplicates = (list1: number[], list2: number[]): number => {
     return duplicates.length;
 }
 
-if (require.main === module) {
-    console.log("Two-adic valuation driver not yet implemented.");
-
-    const num1 = 24;
-    const num2 = 48;
-    
+const processNumbers = (num1: number, num2: number): void => {
     const valuations1 = twoAdicValuation(num1);
     const valuations2 = twoAdicValuation(num2);
 
@@ -36,4 +31,11 @@ if (require.main === module) {
 
     const duplicates = countDuplicates(valuations1, valuations2);
     console.log(`Total duplicates between ${num1} and ${num2}:`, duplicates);
+}
+
+if (require.main === module) {
+    console.log("Two-adic valuation driver not yet implemented.");
+
+    processNumbers(24, 48);
+    processNumbers(18, 36);
 }
