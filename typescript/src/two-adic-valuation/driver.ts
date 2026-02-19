@@ -39,4 +39,5 @@ if (require.main === module) {
     processNumbers(24, 48);
     processNumbers(18, 36);
     processNumbers(8, 4);
+    processNumbers(2000, 17);
 }
