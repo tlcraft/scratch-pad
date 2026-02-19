@@ -5,12 +5,12 @@
 */
 
 const twoAdicValuation = (num: number): number[] => {
-    const valuations: number[] = [];
+    const valuations: number[] = [num];
     let current = num;
 
     while (current % 2 === 0) {
-        valuations.push(current);
         current /= 2;
+        valuations.push(current);
     }
 
     return valuations;
@@ -38,4 +38,5 @@ if (require.main === module) {
 
     processNumbers(24, 48);
     processNumbers(18, 36);
+    processNumbers(8, 4);
 }
