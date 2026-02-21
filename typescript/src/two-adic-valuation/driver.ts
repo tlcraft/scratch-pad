@@ -1,6 +1,7 @@
 /*
     Given two numbers, divide each by 2 repeatedly until you hit an odd number (the 2-adic valuation).
     Add each valuation to a list and then compare the lists for duplicates.
+    Include the original number in the list as well as the final odd number.
     Return the number of duplicates between the lists.
 */
 
