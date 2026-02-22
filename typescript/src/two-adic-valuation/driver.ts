@@ -31,11 +31,11 @@ const processNumbers = (num1: number, num2: number): void => {
     console.log(`Valuations for ${num2}:`, valuations2);
 
     const duplicates = countDuplicates(valuations1, valuations2);
-    console.log(`Total duplicates between ${num1} and ${num2}:`, duplicates);
+    console.log(`Total duplicates between ${num1} and ${num2}: ${duplicates}\n`);
 }
 
 if (require.main === module) {
-    console.log("Two-adic valuation driver not yet implemented.");
+    console.log("Running two-adic valuations...");
 
     processNumbers(24, 48);
     processNumbers(18, 36);
