@@ -49,6 +49,7 @@ if (require.main === module) {
 
     // Modifying the original object to show the effect of Object.assign copy
     originalObject.hobbies.push("gardening");
+    originalObject.name = "John";
     console.log("Modified Original Object:", originalObject);
     console.log("Object.assign Copy after modifying the original:", objectAssignCopiedObject);
     // objectAssignCopiedObject is not modified by the change to the original object because it is a shallow copy, and the hobbies array is shared between the original and the Object.assign copy.
