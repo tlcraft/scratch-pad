@@ -22,6 +22,12 @@ const shallowCopy = (itemToCopy: any) => {
     return copy;
 };
 
+const structuredCloneCopy = (itemToCopy: any) => {
+    const copy = structuredClone(itemToCopy);
+    console.log(`Structured clone copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    return copy;
+};
+
 if (require.main === module) {
     console.log("Running shallow and deep copy examples...");
 
