@@ -68,4 +68,13 @@ if (require.main === module) {
     console.log("Modified Original Object:", originalObject);
     console.log("Object spread Copy after modifying the original:", objectSpreadCopiedObject);
     // objectSpreadCopiedObject is not modified by the change to the original object because it is a shallow copy, and the hobbies array is shared between the original and the Object spread copy.
+
+    const structuredCloneCopiedObject = structuredCloneCopy(originalObject);
+    
+    // Modifying the original object to show the effect of structured clone copy
+    originalObject.hobbies.push("dancing");
+    originalObject.name = "Charlie";
+    console.log("Modified Original Object:", originalObject);
+    console.log("Structured clone Copy after modifying the original:", structuredCloneCopiedObject);
+    // structuredCloneCopiedObject is not modified by the change to the original object because it is a deep copy, and the hobbies array is not shared between the original and the structured clone copy.
 }
