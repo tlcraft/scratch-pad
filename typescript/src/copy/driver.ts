@@ -34,21 +34,21 @@ if (require.main === module) {
     const originalObject = { name: "Alice", age: 30, hobbies: ["reading", "hiking"] };
     console.log("Original Object:", originalObject);
 
-    const copy = spreadCopy(originalObject);
+    const spreadCopiedObject = spreadCopy(originalObject);
 
     // Modifying the original object to show the effect of shallow copy
     originalObject.hobbies.push("cooking");
     console.log("Modified Original Object:", originalObject);
-    console.log("Shallow Copy after modifying the original:", copy);
+    console.log("Shallow Copy after modifying the original:", spreadCopiedObject);
     // copy is modifed by the change to the original object because it is a shallow copy, and the hobbies array is shared between the original and the copy.
 
-    const deepCopiedObject = jsonStringifyCopy(originalObject);
+    const jsonStringifiedCopiedObject = jsonStringifyCopy(originalObject);
 
     // Modifying the original object to show the effect of deep copy
     originalObject.hobbies.push("painting");
     console.log("Modified Original Object:", originalObject);
-    console.log("Shallow Copy after modifying the original:", copy);
-    console.log("Deep Copy after modifying the original:", deepCopiedObject);
+    console.log("Shallow Copy after modifying the original:", spreadCopiedObject);
+    console.log("Deep Copy after modifying the original:", jsonStringifiedCopiedObject);
     // deepCopiedObject is not modified by the change to the original object because it is a deep copy, and the hobbies array is not shared between the original and the deep copy.
 
     const objectAssignCopiedObject = objectAssignCopy(originalObject);
