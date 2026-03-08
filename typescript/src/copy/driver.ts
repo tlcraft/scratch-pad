@@ -1,24 +1,24 @@
 const objectAssignCopy = (itemToCopy: any) => {
     const copy = Object.assign({}, itemToCopy);
-    console.log(`Object.assign copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    console.log(`\n\nObject.assign copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
     return copy;
 };
 
 const objectSpreadCopy = (itemToCopy: any) => {
     const copy = { ...itemToCopy };
-    console.log(`Object spread copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    console.log(`\n\nObject spread copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
     return copy;
 };
 
 const jsonStringifyCopy = (itemToCopy: any) => {
     const copy = JSON.parse(JSON.stringify(itemToCopy));
-    console.log(`JSON stringify copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    console.log(`\n\nJSON stringify copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
     return copy;
 };
 
 const structuredCloneCopy = (itemToCopy: any) => {
     const copy = structuredClone(itemToCopy);
-    console.log(`Structured clone copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    console.log(`\n\nStructured clone copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
     return copy;
 };
 
