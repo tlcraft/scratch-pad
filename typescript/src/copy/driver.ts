@@ -34,17 +34,17 @@ if (require.main === module) {
     originalObject.hobbies.push("cooking");
     originalObject.name = "Bob";
     console.log("Modified Original Object:", originalObject);
-    console.log("Shallow Copy after modifying the original:", spreadCopiedObject);
-    // copy is modifed by the change to the original object because it is a shallow copy, and the hobbies array is shared between the original and the copy.
+    console.log("Spread Copy after modifying the original:", spreadCopiedObject);
+    // spreadCopiedObject is not modifed by the change to the original object because it is a shallow copy, and the hobbies array is updated because it is shared between the original and the copy.
 
     const jsonStringifiedCopiedObject = jsonStringifyCopy(originalObject);
 
     // Modifying the original object to show the effect of deep copy
     originalObject.hobbies.push("painting");
     console.log("Modified Original Object:", originalObject);
-    console.log("Shallow Copy after modifying the original:", spreadCopiedObject);
-    console.log("Deep Copy after modifying the original:", jsonStringifiedCopiedObject);
-    // deepCopiedObject is not modified by the change to the original object because it is a deep copy, and the hobbies array is not shared between the original and the deep copy.
+    console.log("Spread Copy after modifying the original:", spreadCopiedObject);
+    console.log("JSON Stringify Copy after modifying the original:", jsonStringifiedCopiedObject);
+    // jsonStringifiedCopiedObject is not modified by the change to the original object because it is a deep copy, and the hobbies array is not shared between the original and the deep copy.
 
     const objectAssignCopiedObject = objectAssignCopy(originalObject);
 
@@ -53,7 +53,7 @@ if (require.main === module) {
     originalObject.name = "John";
     console.log("Modified Original Object:", originalObject);
     console.log("Object.assign Copy after modifying the original:", objectAssignCopiedObject);
-    // objectAssignCopiedObject is not modified by the change to the original object because it is a shallow copy, and the hobbies array is shared between the original and the Object.assign copy.
+    // objectAssignCopiedObject is not modified by the change to the original object because it is a shallow copy, and the hobbies array is updated because it is shared between the original and the Object.assign copy.
 
     const structuredCloneCopiedObject = structuredCloneCopy(originalObject);
     
