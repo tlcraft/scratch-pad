@@ -1,3 +1,9 @@
+const assignmentCopy = (itemToCopy: any) => {
+    const copy = itemToCopy;
+    console.log(`\n\nObject.assign copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    return copy;
+};
+
 const objectAssignCopy = (itemToCopy: any) => {
     const copy = Object.assign({}, itemToCopy);
     console.log(`\n\nObject.assign copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
@@ -63,6 +69,15 @@ if (require.main === module) {
     console.log("Modified Original Object:", originalObject);
     console.log("Structured clone Copy after modifying the original:", structuredCloneCopiedObject);
     // structuredCloneCopiedObject is not modified by the change to the original object because it is a deep copy, and the hobbies array is not shared between the original and the structured clone copy.
+
+    const assignmentCopiedObject = assignmentCopy(originalObject);
+
+    // Modifying the original object to show the effect of assignment copy
+    originalObject.hobbies.push("swimming");
+    originalObject.name = "David";
+    console.log("Modified Original Object:", originalObject);
+    console.log("Assignment Copy after modifying the original:", assignmentCopiedObject);
+    // assignmentCopiedObject is modified by the change to the original object because it is a reference copy, and the hobbies array is updated because it is shared between the original and the assignment copy.
 }
 
 // For more information on copying objects in JavaScript and TypeScript, you can refer to the following resources:
