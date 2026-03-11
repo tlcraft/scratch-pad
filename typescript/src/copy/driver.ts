@@ -1,6 +1,6 @@
 const assignmentCopy = (itemToCopy: any) => {
     const copy = itemToCopy;
-    console.log(`\n\nObject.assign copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    console.log(`\n\nAssignment copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
     return copy;
 };
 
