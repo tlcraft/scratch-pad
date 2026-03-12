@@ -16,6 +16,12 @@ const objectFreezeCopy = (itemToCopy: any) => {
     return copy;
 };
 
+const objectSealCopy = (itemToCopy: any) => {
+    const copy = Object.seal(itemToCopy);
+    console.log(`\n\nObject.seal copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    return copy;
+};
+
 const objectSpreadCopy = (itemToCopy: any) => {
     const copy = { ...itemToCopy };
     console.log(`\n\nObject spread copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
