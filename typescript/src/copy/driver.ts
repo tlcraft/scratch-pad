@@ -10,6 +10,12 @@ const objectAssignCopy = (itemToCopy: any) => {
     return copy;
 };
 
+const objectFreezeCopy = (itemToCopy: any) => {
+    const copy = Object.freeze(itemToCopy);
+    console.log(`\n\nObject.freeze copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
+    return copy;
+};
+
 const objectSpreadCopy = (itemToCopy: any) => {
     const copy = { ...itemToCopy };
     console.log(`\n\nObject spread copy of ${JSON.stringify(itemToCopy)} is ${JSON.stringify(copy)}`);
@@ -78,6 +84,14 @@ if (require.main === module) {
     console.log("Modified Original Object:", originalObject);
     console.log("Assignment Copy after modifying the original:", assignmentCopiedObject);
     // assignmentCopiedObject is modified by the change to the original object because it is a reference copy, and the hobbies array is updated because it is shared between the original and the assignment copy.
+
+    const objectFreezeCopiedObject = objectFreezeCopy(originalObject);
+
+    // Modifying the original object to show the effect of Object.freeze copy
+    originalObject.hobbies.push("running");
+    console.log("Modified Original Object:", originalObject);
+    console.log("Object.freeze Copy after modifying the original:", objectFreezeCopiedObject);
+    // Freezing an object is the highest integrity level that JavaScript provides. Properties can't be modified however arrays can still be modified because freezing an object only prevents changes to the object's properties, but it does not prevent changes to the contents of the properties if they are objects or arrays. Therefore, the hobbies array in the original object can still be modified, and the changes will be reflected in the frozen copy because it is a reference copy.
 }
 
 // For more information on copying objects in JavaScript and TypeScript, you can refer to the following resources:
