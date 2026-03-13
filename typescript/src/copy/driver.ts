@@ -91,6 +91,16 @@ if (require.main === module) {
     console.log("Assignment Copy after modifying the original:", assignmentCopiedObject);
     // assignmentCopiedObject is modified by the change to the original object because it is a reference copy, and the hobbies array is updated because it is shared between the original and the assignment copy.
 
+    const objectSealCopiedObject = objectSealCopy(originalObject);
+
+    // Modifying the original object to show the effect of Object.seal copy
+    originalObject.name = "Eve";
+    originalObject.hobbies.push("yoga");
+    // Error: originalObject.newProperty = "This will not be added"; //Property 'newProperty' does not exist on type '{ name: string; age: number; hobbies: string[]; }'.
+    console.log("Modified Original Object:", originalObject);
+    console.log("Object.seal Copy after modifying the original:", objectSealCopiedObject);
+    // Sealing an object prevents new properties from being added to it and marks all existing properties as non-configurable. However, it does not prevent changes to the values of existing properties, so the hobbies array in the original object can still be modified, and the changes will be reflected in the sealed copy because it is a reference copy.
+
     const objectFreezeCopiedObject = objectFreezeCopy(originalObject);
 
     // Modifying the original object to show the effect of Object.freeze copy
