@@ -10,7 +10,8 @@
     "decorators": "npx ts-node src/decorators/driver.ts",
     "steps": "npx ts-node src/steps/driver.ts",
     "fib": "npx ts-node src/fibonacci/driver.ts",
-    "two-adic": "npx ts-node src/two-adic-valuation/driver.ts"
+    "two-adic": "npx ts-node src/two-adic-valuation/driver.ts",
+    "copy": "npx ts-node src/copy/driver.ts"
   },
   "keywords": [],
   "author": "",
