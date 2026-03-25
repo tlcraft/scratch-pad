@@ -27,3 +27,9 @@ if __name__ == "__main__":
     original_object = {"name": "Alice", "age": 30, "hobbies": ["reading", "hiking"]}
 
     shallow_copy_example(original_object)
+
+"""
+Resources:
+https://docs.python.org/3/library/copy.html
+https://realpython.com/python-copy/
+"""
