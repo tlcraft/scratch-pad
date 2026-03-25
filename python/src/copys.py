@@ -17,7 +17,7 @@ def shallow_copy_example(original_object):
     shallow_copied_object["age"] = 42
     shallow_copied_object["hobbies"].append("swimming")
 
-    print("\nAfter modifying the original object's hobbies:")
+    print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
     
@@ -37,7 +37,7 @@ def deep_copy_example(original_object):
     deep_copied_object["age"] = 21
     deep_copied_object["hobbies"].append("skiing")
 
-    print("\nAfter modifying the original object's hobbies:")
+    print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
