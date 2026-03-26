@@ -41,6 +41,29 @@ def deep_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
+def unpacked_copy_example(original_object):
+    # This is a simple replacement for copy.copy() that creates a new dictionary
+    # but does not create new nested objects (like lists).
+    # This uses the "dictionary unpacking" syntax to create a new dictionary.
+    unpacked_object = {**original_object}
+
+    print("\nUnpacked Copy Example:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Unpacked object:", json.dumps(unpacked_object, indent=4))
+
+    # Modifying the objects
+    original_object["name"] = "Frank"
+    original_object["age"] = 35
+    original_object["hobbies"].append("biking")
+
+    unpacked_object["name"] = "Garth"
+    unpacked_object["age"] = 45
+    unpacked_object["hobbies"].append("art")
+
+    print("\nAfter modifying the objects:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Unpacked object:", json.dumps(unpacked_object, indent=4))
+
 if __name__ == "__main__":
     print("Running shallow and deep copy examples...")
 
@@ -48,6 +71,7 @@ if __name__ == "__main__":
 
     shallow_copy_example(original_object)
     deep_copy_example(original_object)
+    unpacked_copy_example(original_object)
 
 """
 Resources:
