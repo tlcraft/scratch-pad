@@ -42,8 +42,7 @@ def deep_copy_example(original_object):
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
 def unpacked_copy_example(original_object):
-    # This is a simple replacement for copy.copy() that creates a new dictionary
-    # but does not create new nested objects (like lists).
+    # This pattern creates a new dictionary but does not create new nested objects (like lists).
     # This uses the "dictionary unpacking" syntax to create a new dictionary.
     unpacked_object = {**original_object}
 
@@ -64,6 +63,29 @@ def unpacked_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked object:", json.dumps(unpacked_object, indent=4))
 
+def unpacked_copy_nested_example(original_object):
+    # This pattern creates a new dictionary and also creates new nested objects (like lists).
+    # This uses the "dictionary unpacking" syntax to create a new dictionary,
+    # and also creates new nested objects by using list comprehensions.
+    replaced_object = {**original_object, "hobbies": [hobby for hobby in original_object["hobbies"]]}
+
+    print("\nReplace Copy Example:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Replaced object:", json.dumps(replaced_object, indent=4))
+
+    # Modifying the objects
+    original_object["name"] = "Hank"
+    original_object["age"] = 40
+    original_object["hobbies"].append("gaming")
+
+    replaced_object["name"] = "Ivy"
+    replaced_object["age"] = 50
+    replaced_object["hobbies"].append("dancing")
+
+    print("\nAfter modifying the objects:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Replaced object:", json.dumps(replaced_object, indent=4))
+
 if __name__ == "__main__":
     print("Running shallow and deep copy examples...")
 
@@ -72,6 +94,7 @@ if __name__ == "__main__":
     shallow_copy_example(original_object)
     deep_copy_example(original_object)
     unpacked_copy_example(original_object)
+    unpacked_copy_nested_example(original_object)
 
 """
 Resources:
