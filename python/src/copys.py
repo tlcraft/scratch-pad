@@ -1,5 +1,6 @@
 import copy
 import json
+from dataclasses import dataclass
 
 def shallow_copy_example(original_object):
     shallow_copied_object = copy.copy(original_object)
@@ -86,6 +87,33 @@ def unpacked_nested_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked Nested object:", json.dumps(unpacked_nested_object, indent=4))
     
+@dataclass
+class Person:
+    name: str
+    age: int
+    hobbies: list
+
+def replace_copy_example(original_object: Person):
+    # Function copy.replace() is more limited than copy() and deepcopy(), and only supports named tuples created by namedtuple(), dataclasses, and other classes which define method __replace__().
+    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=original_object.hobbies + ["dancing"])
+
+    print("\nReplace Copy Example:")
+    print("Original object:", original_object)
+    print("Replaced object:", replaced_object)
+
+    # Modifying the objects
+    original_object.name = "Hank"
+    original_object.age = 40
+    original_object.hobbies.append("gaming")
+
+    replaced_object.name = "Jim"
+    replaced_object.age = 60
+    replaced_object.hobbies.append("dancing")
+
+    print("\nAfter modifying the objects:")
+    print("Original object:", original_object)
+    print("Replaced object:", replaced_object)
+
 if __name__ == "__main__":
     print("Running shallow and deep copy examples...")
 
@@ -95,6 +123,9 @@ if __name__ == "__main__":
     deep_copy_example(original_object)
     unpacked_copy_example(original_object)
     unpacked_nested_copy_example(original_object)
+
+    person: Person = Person(name="Alice", age=30, hobbies=["reading", "hiking"])
+    replace_copy_example(person)
 
 """
 Resources:
