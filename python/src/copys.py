@@ -91,7 +91,7 @@ def unpacked_nested_copy_example(original_object):
 class Person:
     name: str
     age: int
-    hobbies: list
+    hobbies: list[str]
 
 def replace_copy_example(original_object: Person):
     # Function copy.replace() is more limited than copy() and deepcopy(), and only supports named tuples created by namedtuple(), dataclasses, and other classes which define method __replace__().
