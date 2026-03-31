@@ -22,6 +22,28 @@ def shallow_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
     
+def shallow_copy_method_example(original_object):
+    # This pattern creates a new dictionary but does not create new nested objects (like lists).
+    # This uses the dict.copy() method to create a new dictionary.
+    shallow_copied_object = original_object.copy()
+
+    print("\nShallow Copy Method Example:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
+
+    # Modifying the objects
+    original_object["name"] = "Dave"
+    original_object["age"] = 25
+    original_object["hobbies"].append("painting")
+
+    shallow_copied_object["name"] = "Eve"
+    shallow_copied_object["age"] = 28
+    shallow_copied_object["hobbies"].append("yoga")
+
+    print("\nAfter modifying the objects:")
+    print("Original object:", json.dumps(original_object, indent=4))
+    print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
+
 def deep_copy_example(original_object):
     deep_copied_object = copy.deepcopy(original_object)
 
@@ -120,6 +142,7 @@ if __name__ == "__main__":
     original_object = {"name": "Alice", "age": 30, "hobbies": ["reading", "hiking"]}
 
     shallow_copy_example(original_object)
+    shallow_copy_method_example(original_object)
     deep_copy_example(original_object)
     unpacked_copy_example(original_object)
     unpacked_nested_copy_example(original_object)
