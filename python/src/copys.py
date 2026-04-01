@@ -9,7 +9,6 @@ def shallow_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
-    # Modifying the objects
     original_object["name"] = "Bob"
     original_object["age"] = 31
     original_object["hobbies"].append("cooking")
@@ -31,7 +30,6 @@ def shallow_copy_method_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
-    # Modifying the objects
     original_object["name"] = "Dave"
     original_object["age"] = 25
     original_object["hobbies"].append("painting")
@@ -51,7 +49,6 @@ def deep_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
-    # Modifying the objects
     original_object["name"] = "Daron"
     original_object["age"] = 51
     original_object["hobbies"].append("running")
@@ -73,7 +70,6 @@ def unpacked_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked object:", json.dumps(unpacked_object, indent=4))
 
-    # Modifying the objects
     original_object["name"] = "Frank"
     original_object["age"] = 35
     original_object["hobbies"].append("biking")
@@ -96,7 +92,6 @@ def unpacked_nested_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked Nested object:", json.dumps(unpacked_nested_object, indent=4))
 
-    # Modifying the objects
     original_object["name"] = "Hank"
     original_object["age"] = 40
     original_object["hobbies"].append("gaming")
@@ -123,7 +118,6 @@ def replace_copy_example(original_object: Person):
     print("Original object:", original_object)
     print("Replaced object:", replaced_object)
 
-    # Modifying the objects
     original_object.name = "Hank"
     original_object.age = 40
     original_object.hobbies.append("gaming")
