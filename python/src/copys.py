@@ -1,3 +1,11 @@
+"""
+Examples demonstrating shallow and deep copy techniques in Python.
+
+References:
+    Python copy module - Shallow and deep copy operations: https://docs.python.org/3/library/copy.html
+    Real Python - How to Copy Objects in Python: https://realpython.com/python-copy/
+"""
+
 import copy
 import json
 from dataclasses import dataclass
@@ -143,9 +151,3 @@ if __name__ == "__main__":
 
     person: Person = Person(name="Alice", age=30, hobbies=["reading", "hiking"])
     replace_copy_example(person)
-
-"""
-Resources:
-https://docs.python.org/3/library/copy.html
-https://realpython.com/python-copy/
-"""
