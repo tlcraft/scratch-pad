@@ -106,7 +106,7 @@ def unpacked_nested_copy_example(original_object: dict):
 
     unpacked_nested_object["name"] = "Ivy"
     unpacked_nested_object["age"] = 50
-    unpacked_nested_object["hobbies"].append("rafting")
+    unpacked_nested_object["hobbies"].append("dancing")
 
     print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
@@ -132,7 +132,7 @@ def replace_copy_example(original_object: Person):
 
     replaced_object.name = "Jim"
     replaced_object.age = 60
-    replaced_object.hobbies.append("dancing")
+    replaced_object.hobbies.append("rafting")
 
     print("\nAfter modifying the objects:")
     print("Original object:", original_object)
