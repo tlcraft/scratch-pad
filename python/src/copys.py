@@ -10,7 +10,7 @@ import copy
 import json
 from dataclasses import dataclass
 
-def shallow_copy_example(original_object):
+def shallow_copy_example(original_object: dict):
     shallow_copied_object = copy.copy(original_object)
 
     print("\nShallow Copy Example:")
@@ -29,7 +29,7 @@ def shallow_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
     
-def shallow_copy_method_example(original_object):
+def shallow_copy_method_example(original_object: dict):
     # This pattern creates a new dictionary but does not create new nested objects (like lists).
     # This uses the dict.copy() method to create a new dictionary.
     shallow_copied_object = original_object.copy()
@@ -50,7 +50,7 @@ def shallow_copy_method_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
-def deep_copy_example(original_object):
+def deep_copy_example(original_object: dict):
     deep_copied_object = copy.deepcopy(original_object)
 
     print("\nDeep Copy Example:")
@@ -69,7 +69,7 @@ def deep_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
-def unpacked_copy_example(original_object):
+def unpacked_copy_example(original_object: dict):
     # This pattern creates a new dictionary but does not create new nested objects (like lists).
     # This uses the "dictionary unpacking" syntax to create a new dictionary.
     unpacked_object = {**original_object}
@@ -90,7 +90,7 @@ def unpacked_copy_example(original_object):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked object:", json.dumps(unpacked_object, indent=4))
 
-def unpacked_nested_copy_example(original_object):
+def unpacked_nested_copy_example(original_object: dict):
     # This pattern creates a new dictionary and also creates new nested objects (like lists).
     # This uses the "dictionary unpacking" syntax to create a new dictionary,
     # and also creates new nested objects by using list comprehensions.
