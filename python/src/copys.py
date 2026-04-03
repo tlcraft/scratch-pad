@@ -10,7 +10,7 @@ import copy
 import json
 from dataclasses import dataclass
 
-def shallow_copy_example(original_object: dict):
+def shallow_copy_example(original_object: dict) -> None:
     shallow_copied_object = copy.copy(original_object)
 
     print("\nShallow Copy Example:")
@@ -29,7 +29,7 @@ def shallow_copy_example(original_object: dict):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
     
-def shallow_copy_method_example(original_object: dict):
+def shallow_copy_method_example(original_object: dict) -> None:
     # This pattern creates a new dictionary but does not create new nested objects (like lists).
     # This uses the dict.copy() method to create a new dictionary.
     shallow_copied_object = original_object.copy()
@@ -50,7 +50,7 @@ def shallow_copy_method_example(original_object: dict):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
-def deep_copy_example(original_object: dict):
+def deep_copy_example(original_object: dict) -> None:
     deep_copied_object = copy.deepcopy(original_object)
 
     print("\nDeep Copy Example:")
@@ -69,7 +69,7 @@ def deep_copy_example(original_object: dict):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
-def unpacked_copy_example(original_object: dict):
+def unpacked_copy_example(original_object: dict) -> None:
     # This pattern creates a new dictionary but does not create new nested objects (like lists).
     # This uses the "dictionary unpacking" syntax to create a new dictionary.
     unpacked_object = {**original_object}
@@ -90,7 +90,7 @@ def unpacked_copy_example(original_object: dict):
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked object:", json.dumps(unpacked_object, indent=4))
 
-def unpacked_nested_copy_example(original_object: dict):
+def unpacked_nested_copy_example(original_object: dict) -> None:
     # This pattern creates a new dictionary and also creates new nested objects (like lists).
     # This uses the "dictionary unpacking" syntax to create a new dictionary,
     # and also creates new nested objects by using list comprehensions.
@@ -118,9 +118,10 @@ class Person:
     age: int
     hobbies: list[str]
 
-def replace_copy_example(original_object: Person):
-    # Function copy.replace() is more limited than copy() and deepcopy(), and only supports named tuples created by namedtuple(), dataclasses, and other classes which define method __replace__().
-    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=original_object.hobbies + ["dancing"])
+def replace_copy_example(original_object: Person) -> None:
+    # Function copy.replace() is more limited than copy() and deepcopy()
+    # It only supports named tuples created by namedtuple(), dataclasses, and other classes which define method __replace__().
+    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=original_object.hobbies)
 
     print("\nReplace Copy Example:")
     print("Original object:", original_object)
@@ -141,13 +142,13 @@ def replace_copy_example(original_object: Person):
 if __name__ == "__main__":
     print("Running shallow and deep copy examples...")
 
-    original_object = {"name": "Alice", "age": 30, "hobbies": ["reading", "hiking"]}
+    ORIGINAL_OBJECT = {"name": "Alice", "age": 30, "hobbies": ["reading", "hiking"]}
 
-    shallow_copy_example(original_object)
-    shallow_copy_method_example(original_object)
-    deep_copy_example(original_object)
-    unpacked_copy_example(original_object)
-    unpacked_nested_copy_example(original_object)
+    shallow_copy_example(copy.deepcopy(ORIGINAL_OBJECT))
+    shallow_copy_method_example(copy.deepcopy(ORIGINAL_OBJECT))
+    deep_copy_example(copy.deepcopy(ORIGINAL_OBJECT))
+    unpacked_copy_example(copy.deepcopy(ORIGINAL_OBJECT))
+    unpacked_nested_copy_example(copy.deepcopy(ORIGINAL_OBJECT))
 
     person: Person = Person(name="Alice", age=30, hobbies=["reading", "hiking"])
     replace_copy_example(person)
