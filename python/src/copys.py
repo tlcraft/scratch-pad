@@ -10,6 +10,13 @@ import copy
 import json
 from dataclasses import dataclass
 
+@dataclass
+class Person:
+    name: str
+    age: int
+    hobbies: list[str]
+
+
 def shallow_copy_example(original_object: dict) -> None:
     shallow_copied_object = copy.copy(original_object)
 
@@ -29,9 +36,12 @@ def shallow_copy_example(original_object: dict) -> None:
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
     
+
 def shallow_copy_method_example(original_object: dict) -> None:
-    # This pattern creates a new dictionary but does not create new nested objects (like lists).
-    # This uses the dict.copy() method to create a new dictionary.
+    """
+    This pattern creates a new dictionary but does not create new nested objects (like lists).
+    This uses the dict.copy() method to create a new dictionary.
+    """
     shallow_copied_object = original_object.copy()
 
     print("\nShallow Copy Method Example:")
@@ -49,6 +59,7 @@ def shallow_copy_method_example(original_object: dict) -> None:
     print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
+
 
 def deep_copy_example(original_object: dict) -> None:
     deep_copied_object = copy.deepcopy(original_object)
@@ -69,9 +80,12 @@ def deep_copy_example(original_object: dict) -> None:
     print("Original object:", json.dumps(original_object, indent=4))
     print("Deep copied object:", json.dumps(deep_copied_object, indent=4))
 
+
 def unpacked_copy_example(original_object: dict) -> None:
-    # This pattern creates a new dictionary but does not create new nested objects (like lists).
-    # This uses the "dictionary unpacking" syntax to create a new dictionary.
+    """
+    This pattern creates a new dictionary but does not create new nested objects (like lists).
+    This uses the "dictionary unpacking" syntax to create a new dictionary.
+    """
     unpacked_object = {**original_object}
 
     print("\nUnpacked Copy Example:")
@@ -90,11 +104,14 @@ def unpacked_copy_example(original_object: dict) -> None:
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked object:", json.dumps(unpacked_object, indent=4))
 
+
 def unpacked_nested_copy_example(original_object: dict) -> None:
-    # This pattern creates a new dictionary and also creates new nested objects (like lists).
-    # This uses the "dictionary unpacking" syntax to create a new dictionary,
-    # and also creates new nested objects by using list comprehensions.
-    unpacked_nested_object = {**original_object, "hobbies": [hobby for hobby in original_object["hobbies"]]}
+    """
+    This pattern creates a new dictionary and also creates new nested objects (like lists).
+    This uses the "dictionary unpacking" syntax to create a new dictionary,
+    and also creates new nested objects by using list.
+    """
+    unpacked_nested_object = {**original_object, "hobbies": list(original_object["hobbies"])}
 
     print("\nUnpacked Nested Copy Example:")
     print("Original object:", json.dumps(original_object, indent=4))
@@ -111,16 +128,14 @@ def unpacked_nested_copy_example(original_object: dict) -> None:
     print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
     print("Unpacked Nested object:", json.dumps(unpacked_nested_object, indent=4))
-    
-@dataclass
-class Person:
-    name: str
-    age: int
-    hobbies: list[str]
+
 
 def replace_copy_example(original_object: Person) -> None:
-    # Function copy.replace() is more limited than copy() and deepcopy()
-    # It only supports named tuples created by namedtuple(), dataclasses, and other classes which define method __replace__().
+    """
+    Function copy.replace() is more limited than copy() and deepcopy()
+    It only supports named tuples created by namedtuple(), dataclasses, 
+    and other classes which define method __replace__().
+    """
     replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=original_object.hobbies)
 
     print("\nReplace Copy Example:")
@@ -138,6 +153,7 @@ def replace_copy_example(original_object: Person) -> None:
     print("\nAfter modifying the objects:")
     print("Original object:", original_object)
     print("Replaced object:", replaced_object)
+
 
 if __name__ == "__main__":
     print("Running shallow and deep copy examples...")
