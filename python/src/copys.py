@@ -18,6 +18,12 @@ class Person:
 
 
 def shallow_copy_example(original_object: dict) -> None:
+    """
+    Demonstrates shallow copy using copy.copy().
+
+    Creates a new top-level object, but nested objects (like lists)
+    are still shared between the original and the copy.
+    """
     shallow_copied_object = copy.copy(original_object)
 
     print("\nShallow Copy Example:")
@@ -35,7 +41,7 @@ def shallow_copy_example(original_object: dict) -> None:
     print("\nAfter modifying the objects:")
     print("Original object:", json.dumps(original_object, indent=4))
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
-    
+
 
 def shallow_copy_method_example(original_object: dict) -> None:
     """
@@ -61,7 +67,12 @@ def shallow_copy_method_example(original_object: dict) -> None:
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
 
-def deep_copy_example(original_object: dict) -> None:
+def deep_copy_example(original_object: dict) -> None:    
+    """
+    Demonstrates deep copy using copy.deepcopy().
+
+    Creates a fully independent copy — nested objects are not shared.
+    """
     deep_copied_object = copy.deepcopy(original_object)
 
     print("\nDeep Copy Example:")
@@ -136,7 +147,7 @@ def replace_copy_example(original_object: Person) -> None:
     It only supports named tuples created by namedtuple(), dataclasses, 
     and other classes which define method __replace__().
     """
-    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=original_object.hobbies)
+    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=list(original_object.hobbies))
 
     print("\nReplace Copy Example:")
     print("Original object:", original_object)
