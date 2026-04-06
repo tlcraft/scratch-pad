@@ -123,7 +123,10 @@ def unpacked_nested_copy_example(original_object: dict) -> None:
     This uses the "dictionary unpacking" syntax to create a new dictionary,
     and also creates new nested objects by using list.
     """
-    unpacked_nested_object = {**original_object, "hobbies": list(original_object["hobbies"])}
+    unpacked_nested_object = {
+        **original_object, 
+        "hobbies": list(original_object["hobbies"])
+    }
 
     print("\nUnpacked Nested Copy Example:")
     print("Original object:", json.dumps(original_object, indent=4))
@@ -149,8 +152,9 @@ def replace_copy_example(original_object: Person) -> None:
     and other classes which define method __replace__().
     """
     replaced_object = copy.replace(
-        original_object, name="Ivy", 
-        age=50, 
+        original_object,
+        name="Ivy",
+        age=50,
         hobbies=list(original_object.hobbies)
     )
 
