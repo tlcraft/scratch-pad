@@ -10,6 +10,7 @@ import copy
 import json
 from dataclasses import dataclass
 
+
 @dataclass
 class Person:
     name: str
@@ -67,7 +68,7 @@ def shallow_copy_method_example(original_object: dict) -> None:
     print("Shallow copied object:", json.dumps(shallow_copied_object, indent=4))
 
 
-def deep_copy_example(original_object: dict) -> None:    
+def deep_copy_example(original_object: dict) -> None:
     """
     Demonstrates deep copy using copy.deepcopy().
 
@@ -147,7 +148,11 @@ def replace_copy_example(original_object: Person) -> None:
     It only supports named tuples created by namedtuple(), dataclasses, 
     and other classes which define method __replace__().
     """
-    replaced_object = copy.replace(original_object, name="Ivy", age=50, hobbies=list(original_object.hobbies))
+    replaced_object = copy.replace(
+        original_object, name="Ivy", 
+        age=50, 
+        hobbies=list(original_object.hobbies)
+    )
 
     print("\nReplace Copy Example:")
     print("Original object:", original_object)
