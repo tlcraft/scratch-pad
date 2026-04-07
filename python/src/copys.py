@@ -48,6 +48,7 @@ def shallow_copy_method_example(original_object: dict) -> None:
     """
     This pattern creates a new dictionary but does not create new nested objects (like lists).
     This uses the dict.copy() method to create a new dictionary.
+    This is equivalent to copy.copy() for dicts.
     """
     shallow_copied_object = original_object.copy()
 
@@ -124,7 +125,7 @@ def unpacked_nested_copy_example(original_object: dict) -> None:
     and also creates new nested objects by using list.
     """
     unpacked_nested_object = {
-        **original_object, 
+        **original_object,
         "hobbies": list(original_object["hobbies"])
     }
 
