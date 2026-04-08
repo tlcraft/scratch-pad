@@ -48,7 +48,7 @@ def shallow_copy_method_example(original_object: dict) -> None:
     """
     This pattern creates a new dictionary but does not create new nested objects (like lists).
     This uses the dict.copy() method to create a new dictionary.
-    This is equivalent to copy.copy() for dicts.
+    This is equivalent to copy.copy() for dicts and results in a shallow copy.
     """
     shallow_copied_object = original_object.copy()
 
@@ -122,7 +122,7 @@ def unpacked_nested_copy_example(original_object: dict) -> None:
     """
     This pattern creates a new dictionary and also creates new nested objects (like lists).
     This uses the "dictionary unpacking" syntax to create a new dictionary,
-    and also creates new nested objects by using list.
+    and also creates new nested objects by wrapping them with list().
     """
     unpacked_nested_object = {
         **original_object,
@@ -148,9 +148,13 @@ def unpacked_nested_copy_example(original_object: dict) -> None:
 
 def replace_copy_example(original_object: Person) -> None:
     """
-    Function copy.replace() is more limited than copy() and deepcopy()
-    It only supports named tuples created by namedtuple(), dataclasses, 
-    and other classes which define method __replace__().
+    Demonstrates copy.replace() for dataclasses.
+
+    Note: copy.replace() is more limited than copy() and deepcopy().
+    It only supports:
+        - Named tuples created by namedtuple()
+        - Dataclasses
+        - Classes that define __replace__()
     """
     replaced_object = copy.replace(
         original_object,
