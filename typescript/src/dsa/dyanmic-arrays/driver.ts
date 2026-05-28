@@ -7,14 +7,14 @@ class DynamicArray<T> {
     }
 
     public get(index: number): T | undefined {
-        if (index < 0 || index >= this.capacity) {
+        if (index < 0 || index >= this.count) {
             throw new Error("Index out of bounds");
         }
         return this.array[index];
     }
 
     public set(index: number, value: T): void {
-        if (index < 0 || index >= this.capacity) {
+        if (index < 0 || index >= this.count) {
             throw new Error("Index out of bounds");
         }
         this.array[index] = value;
@@ -41,7 +41,7 @@ class DynamicArray<T> {
     }
 
     public size(): number {
-        return this.capacity;
+        return this.count;
     }
 }
 
