@@ -30,7 +30,12 @@ class DynamicArray<T> {
     }
 
     private resize(): void {
-        this.capacity *= 2;
+        if (this.capacity === 0) {
+            this.capacity = 1;
+        } else {
+            this.capacity *= 2;
+        }
+
         const newArray: T[] = new Array<T>(this.capacity);
 
         for (let i = 0; i < this.count; i++) {
@@ -60,6 +65,19 @@ if (require.main === module) {
     console.log('Elements in the dynamic array:');
     for (let i = 0; i < dynamicArray.size(); i++) {
         const value = dynamicArray.get(i);
+        if (value !== undefined) {
+            console.log(`Index ${i}: ${value}`);
+        }
+    }
+    
+    const dynamicArray2 = new DynamicArray<string>(0);
+    dynamicArray2.push("Hello");
+    dynamicArray2.push("World");
+    console.log('Size of string dynamic array: ', dynamicArray2.size());
+
+    console.log('Elements in the string dynamic array:');
+    for (let i = 0; i < dynamicArray2.size(); i++) {
+        const value = dynamicArray2.get(i);
         if (value !== undefined) {
             console.log(`Index ${i}: ${value}`);
         }
