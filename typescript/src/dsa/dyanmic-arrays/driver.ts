@@ -88,4 +88,8 @@ if (require.main === module) {
         const value = dynamicArray2.get(i);
         console.log(`Index ${i}: ${value}`);
     }
+
+    const item = dynamicArray2.pop();
+    console.log('Popped item: ', item);
+    console.log('Size after popping an element: ', dynamicArray2.size());
 }
