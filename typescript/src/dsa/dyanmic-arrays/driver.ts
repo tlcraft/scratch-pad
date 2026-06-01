@@ -1,3 +1,18 @@
+/*
+    Dynamic Array Implementation in TypeScript
+
+    This implementation provides a dynamic array that can grow in size as needed. 
+    It supports basic operations such as getting and setting elements, adding new elements, and removing the last element.
+
+    The dynamic array starts with an initial capacity and doubles its capacity when it runs out of space. 
+    This allows for efficient memory usage while providing the flexibility to handle varying amounts of data.
+
+    The time complexity for adding an element is O(1) on average, but can be O(n) when resizing is needed.
+    The time complexity for getting and setting elements is O(1).
+    The time complexity for popping an element is O(1).
+
+    The space complexity is O(n) where n is the number of elements in the dynamic array.
+*/
 class DynamicArray<T> {
     private array: T[];
     private count: number = 0;
