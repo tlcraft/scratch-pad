@@ -22,17 +22,18 @@ class DynamicArray<T> {
     }
 
     public get(index: number): T | undefined {
-        if (index < 0 || index >= this.count) {
-            throw new Error("Index out of bounds");
+        if (0 <= index && index < this.count) {
+            return this.array[index];
         }
-        return this.array[index];
+        throw new Error("Index out of bounds");
     }
 
     public set(index: number, value: T): void {
-        if (index < 0 || index >= this.count) {
+        if (0 <= index && index < this.count) {
+            this.array[index] = value;
+        } else {
             throw new Error("Index out of bounds");
         }
-        this.array[index] = value;
     }
 
     public push(value: T): void {
