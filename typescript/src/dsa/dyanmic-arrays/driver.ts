@@ -18,6 +18,9 @@ class DynamicArray<T> {
     private count: number = 0;
 
     constructor(private capacity: number) {
+        if (!Number.isInteger(capacity) || capacity < 0 || Number.MAX_SAFE_INTEGER < capacity) {
+            throw new Error("Capacity must be a non-negative integer.");
+        }
         this.array = new Array<T>(capacity);
     }
 
@@ -52,6 +55,7 @@ class DynamicArray<T> {
         
         const value = this.array[this.count - 1];
         this.count--;
+        this.array[this.count] = undefined as T;
         return value;
     }
 
