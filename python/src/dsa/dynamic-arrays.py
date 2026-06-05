@@ -14,6 +14,12 @@ class DynamicArray:
         if 0 <= index < self.__count:
             return self.array[index]
         raise IndexError("Index out of bounds")
+    
+    def set(self, index, value):
+        if 0 <= index < self.__count:
+            self.array[index] = value
+        else:
+            raise IndexError("Index out of bounds")
 
     def _resize(self):
         self.__capacity = 2 * self.__capacity if self.__capacity else 1
