@@ -10,6 +10,14 @@ class DynamicArray:
         self.array[self.__count] = value
         self.__count += 1
 
+    def pop(self):
+        if self.__count == 0:
+            raise IndexError("Pop from empty array")
+        value = self.array[self.__count - 1]
+        self.array[self.__count - 1] = None
+        self.__count -= 1
+        return value
+
     def get(self, index):
         if 0 <= index < self.__count:
             return self.array[index]
@@ -28,6 +36,9 @@ class DynamicArray:
             new_array[i] = self.array[i]
         self.array = new_array
 
+    def size(self):
+        return self.__count
+
 if __name__ == "__main__":
     print("Dynamic Arrays in Python")
 
@@ -40,3 +51,7 @@ if __name__ == "__main__":
 
     dynamic_array.set(0, 10)
     print(dynamic_array.get(0))
+
+    print("Popped value:", dynamic_array.pop())
+    for i in range(dynamic_array.size()):
+        print(dynamic_array.get(i))
