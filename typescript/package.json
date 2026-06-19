@@ -11,7 +11,8 @@
     "steps": "npx ts-node src/steps/driver.ts",
     "fib": "npx ts-node src/fibonacci/driver.ts",
     "two-adic": "npx ts-node src/two-adic-valuation/driver.ts",
-    "copy": "npx ts-node src/copy/driver.ts"
+    "copy": "npx ts-node src/copy/driver.ts",
+    "dsa-dynamic-arrays": "npx ts-node src/dsa/dyanmic-arrays/driver.ts"
   },
   "keywords": [],
   "author": "",
