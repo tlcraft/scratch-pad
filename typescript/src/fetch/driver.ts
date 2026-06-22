@@ -17,12 +17,18 @@ const redditRequestDriver = async (url: string) => {
         topPosts.forEach(post => console.log(post.title, post.ups));
     } else {
         console.error("HTTP Request Failed: ", response.status, response.statusText);
+        const errorBody = await response.text();
+        console.error("Response body snippet:", errorBody.slice(0, 300));
     }
 };
 
 const makeHttpRequest = async (url: string, method: HttpMethod): Promise<Response> => {
     const response = await fetch(url, {
-        "method": method
+        "method": method,
+        "headers": {
+            "User-Agent": "request-example:v1.0",
+            "Accept": "application/json"
+        }
     });
 
     console.log("Async Response: ", response);
