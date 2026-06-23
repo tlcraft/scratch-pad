@@ -31,8 +31,8 @@ const makeHttpRequest = async (url: string, method: HttpMethod): Promise<Respons
         }
     });
 
-    console.log("Async Response: ", response);
-    console.log("Async Response Status: ", response?.status);
+    // console.log("Async Response: ", response);
+    // console.log("Async Response Status: ", response?.status);
 
     return response;
 };
