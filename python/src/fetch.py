@@ -1,14 +1,29 @@
 import json
+from urllib.error import HTTPError, URLError
 import urllib.request
-from typing import Final
+from typing import Final, Any
 
 LIMIT: Final[int] = 5
 
-def fetch_reddit_data(url: str) -> any:
-    with urllib.request.urlopen(url) as response:
-        return json.load(response)
+def fetch_reddit_data(url: str) -> dict:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "request-example:v1.0",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            return json.load(response)
+    except HTTPError as e:
+        print(f"HTTP error: {e.code} {e.reason}")
+        return {}
+    except URLError as e:
+        print(f"Network error: {e.reason}")
+        return {}
 
-def process_reddit_json(json_data: any) -> list:
+def process_reddit_json(json_data: Any) -> list:
     if json_data:
         print(json_data.get("kind"))
 
@@ -29,8 +44,10 @@ def process_reddit_json(json_data: any) -> list:
 if __name__ == "__main__":
     print("Getting data from Reddit...")
     json_data = fetch_reddit_data("https://www.reddit.com/r/sanfrancisco.json")
-    top_posts = process_reddit_json(json_data)
+    
+    if json_data:
+        top_posts = process_reddit_json(json_data)
 
-    print("Top posts by upvotes:")
-    for post in top_posts[:LIMIT]:
-        print(f"Title: {post['title']}, Upvotes: {post['ups']}")
+        print("Top posts by upvotes:")
+        for post in top_posts[:LIMIT]:
+            print(f"Title: {post['title']}, Upvotes: {post['ups']}")

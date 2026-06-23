@@ -9,20 +9,30 @@ const URL = "https://www.reddit.com/r/sanfrancisco.json";
 
 const redditRequestDriver = async (url: string) => {
     const response = await makeHttpRequest(url, HttpMethod.GET);
-    const json = await response.json();
-    const posts = processRedditData(json);
-
-    const topPosts = posts.slice(0, LIMIT);
-    topPosts.forEach(post => console.log(post.title, post.ups));
+    if (response.ok) {
+        const json = await response.json();
+        const posts = processRedditData(json);
+    
+        const topPosts = posts.slice(0, LIMIT);
+        topPosts.forEach(post => console.log(post.title, post.ups));
+    } else {
+        console.error("HTTP Request Failed: ", response.status, response.statusText);
+        const errorBody = await response.text();
+        console.error("Response body snippet:", errorBody.slice(0, 300));
+    }
 };
 
 const makeHttpRequest = async (url: string, method: HttpMethod): Promise<Response> => {
     const response = await fetch(url, {
-        "method": method
+        "method": method,
+        "headers": {
+            "User-Agent": "request-example:v1.0",
+            "Accept": "application/json"
+        }
     });
 
     // console.log("Async Response: ", response);
-    console.log("Async Response Status: ", response?.status);
+    // console.log("Async Response Status: ", response?.status);
 
     return response;
 };
