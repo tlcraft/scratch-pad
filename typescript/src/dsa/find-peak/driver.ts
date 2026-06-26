@@ -22,4 +22,8 @@ if (require.main === module) {
     const values = [1, 3, 5, 7, 6, 4, 2];
     const peakIndex = findPeak(values);
     console.log(`Peak found at index ${peakIndex} with value ${values[peakIndex]}`);
+
+    const values2 = [1, 3, 5, 6, 7, 4, 2 , 2];
+    const peakIndex2 = findPeak(values2);
+    console.log(`Peak found at index ${peakIndex2} with value ${values2[peakIndex2]}`);
 }
