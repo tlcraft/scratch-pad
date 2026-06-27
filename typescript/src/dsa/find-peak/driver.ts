@@ -16,6 +16,16 @@ const findPeak = (arr: number[]): number => {
     return left;
 }
 
+// AI generated linear search implementation for finding peak in an array. This is not the most efficient way to find a peak, but it works for demonstration purposes.
+const findPeakLinear = (arr: number[]): number => {
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i]! > arr[i - 1]! && arr[i]! > arr[i + 1]!) {
+            return i;
+        }
+    }
+    return -1; // No peak found
+}
+
 if (require.main === module) {
     console.log('Locating the peak of an array');
 
