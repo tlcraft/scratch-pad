@@ -31,9 +31,13 @@ if (require.main === module) {
 
     const values = [1, 3, 5, 7, 6, 4, 2];
     const peakIndex = findPeak(values);
-    console.log(`Peak found at index ${peakIndex} with value ${values[peakIndex]}`);
+    const peakIndexLinear = findPeakLinear(values);
+    console.log(`Binary serach: Peak found at index ${peakIndex} with value ${values[peakIndex]}`);
+    console.log(`Linear search: peak found at index ${peakIndexLinear} with value ${values[peakIndexLinear]}`);
 
     const values2 = [1, 3, 5, 6, 7, 4, 2 , 2];
     const peakIndex2 = findPeak(values2);
-    console.log(`Peak found at index ${peakIndex2} with value ${values2[peakIndex2]}`);
+    const peakIndexLinear2 = findPeakLinear(values2);
+    console.log(`Binary search: Peak found at index ${peakIndex2} with value ${values2[peakIndex2]}`);
+    console.log(`Linear search: peak found at index ${peakIndexLinear2} with value ${values2[peakIndexLinear2]}`);
 }
