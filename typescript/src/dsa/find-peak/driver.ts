@@ -26,11 +26,7 @@ const findPeakLinear = (arr: number[]): number => {
     return -1; // No peak found
 }
 
-if (require.main === module) {
-    console.log('Locating the peak of an array');
-
-    const values = [1, 2, 3, 4, 5, 7, 6, 4, 2, 1];
-
+const processArray = (values: number[]): void => {
     const startTime = performance.now();
     const peakIndex = findPeak(values);
     const endTime = performance.now();
@@ -40,26 +36,17 @@ if (require.main === module) {
     const peakIndexLinear = findPeakLinear(values);
     const endTimeLinear = performance.now();
     console.log(`Linear search: peak found at index ${peakIndexLinear} with value ${values[peakIndexLinear]} in ${endTimeLinear - startTimeLinear} milliseconds`);
+}
+
+if (require.main === module) {
+    console.log('Locating the peak of an array (which contains no duplicates) using binary search and linear search:');
+
+    const values = [1, 2, 3, 4, 5, 7, 6, 4, 2, 1];
+    processArray(values);
 
     const values2 = [1, 3, 5, 6, 7, 4, 2 , 2, 1];
-    const startTime2 = performance.now();
-    const peakIndex2 = findPeak(values2);
-    const endTime2 = performance.now();
-    console.log(`Binary search: Peak found at index ${peakIndex2} with value ${values2[peakIndex2]} in ${endTime2 - startTime2} milliseconds`);
-
-    const startTimeLinear2 = performance.now();
-    const peakIndexLinear2 = findPeakLinear(values2);
-    const endTimeLinear2 = performance.now();
-    console.log(`Linear search: peak found at index ${peakIndexLinear2} with value ${values2[peakIndexLinear2]} in ${endTimeLinear2 - startTimeLinear2} milliseconds`);
+    processArray(values2);
 
     const values3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 7, 6, 5, 4, 2, 1];
-    const startTime3 = performance.now();
-    const peakIndex3 = findPeak(values3);
-    const endTime3 = performance.now();
-    console.log(`Binary search: Peak found at index ${peakIndex3} with value ${values3[peakIndex3]} in ${endTime3 - startTime3} milliseconds`);
-
-    const startTimeLinear3 = performance.now();
-    const peakIndexLinear3 = findPeakLinear(values3);
-    const endTimeLinear3 = performance.now();
-    console.log(`Linear search: peak found at index ${peakIndexLinear3} with value ${values3[peakIndexLinear3]} in ${endTimeLinear3 - startTimeLinear3} milliseconds`);
+    processArray(values3);
 }
