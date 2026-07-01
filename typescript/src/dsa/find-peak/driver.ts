@@ -26,7 +26,7 @@ const findPeakLinear = (arr: number[]): number => {
     return -1; // No peak found
 }
 
-const processArray = (values: number[]): void => {
+const runFindPeakAnalysis = (values: number[]): void => {
     const startTime = performance.now();
     const peakIndex = findPeak(values);
     const endTime = performance.now();
@@ -41,12 +41,15 @@ const processArray = (values: number[]): void => {
 if (require.main === module) {
     console.log('Locating the peak of an array (which contains no duplicates) using binary search and linear search:');
 
-    const values = [1, 2, 3, 4, 5, 7, 6, 4, 2, 1];
-    processArray(values);
+    const values = [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1];
+    runFindPeakAnalysis(values);
 
-    const values2 = [1, 3, 5, 6, 7, 4, 2 , 2, 1];
-    processArray(values2);
+    const values2 = [1, 3, 5, 6, 7, 4, 2, 1];
+    runFindPeakAnalysis(values2);
 
     const values3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 7, 6, 5, 4, 2, 1];
-    processArray(values3);
+    runFindPeakAnalysis(values3);
+
+    const values4 = [0, 1, 0];
+    runFindPeakAnalysis(values4);
 }
