@@ -31,7 +31,7 @@ interface Item {
     value: number 
 }
 
-const processKnapsack = (items: Item[], capacity: number): number => {
+const processKnapsackBottomUp = (items: Item[], capacity: number): number => {
     const bestValueByCapacity = new Array(capacity + 1).fill(0);
 
     items.forEach(item => {
@@ -57,6 +57,6 @@ if (require.main === module) {
 
     const capacity = 5;
 
-    const maximum = processKnapsack(items, capacity);
+    const maximum = processKnapsackBottomUp(items, capacity);
     console.log(`Maximum value that can be obtained: ${maximum}`);
 }
