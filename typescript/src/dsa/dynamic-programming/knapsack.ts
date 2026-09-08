@@ -45,6 +45,31 @@ const processKnapsackBottomUp = (items: Item[], capacity: number): number => {
     return bestValueByCapacity[capacity];
 }
 
+const processKnapsackMemoized = (items: Item[], index: number, remainingCapacity: number, memo: Map<string, number>): number => {
+    if (index >= items.length || remainingCapacity <= 0) {
+        return 0;
+    }
+
+    const memoKey = `${index}-${remainingCapacity}`;
+    if (memo.has(memoKey)) {
+        return memo.get(memoKey)!;
+    }
+
+    const currentItem = items[index];
+    let maxValue: number;
+
+    if (currentItem!.weight > remainingCapacity) {
+        maxValue = processKnapsackMemoized(items, index + 1, remainingCapacity, memo);
+    } else {
+        const valueWithCurrentItem = currentItem!.value + processKnapsackMemoized(items, index + 1, remainingCapacity - currentItem!.weight, memo);
+        const valueWithoutCurrentItem = processKnapsackMemoized(items, index + 1, remainingCapacity, memo);
+        maxValue = Math.max(valueWithCurrentItem, valueWithoutCurrentItem);
+    }
+
+    memo.set(memoKey, maxValue);
+    return maxValue;
+}
+
 if (require.main === module) {
     console.log('Testing the dynamic programming knapsack implementation');
 
@@ -59,4 +84,8 @@ if (require.main === module) {
 
     const maximum = processKnapsackBottomUp(items, capacity);
     console.log(`Maximum value that can be obtained: ${maximum}`);
+
+    const memo = new Map<string, number>();
+    const maximumMemoized = processKnapsackMemoized(items, 0, capacity, memo);
+    console.log(`Maximum value that can be obtained (memoized): ${maximumMemoized}`);
 }
