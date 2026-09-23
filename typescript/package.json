@@ -13,7 +13,8 @@
     "two-adic": "npx ts-node src/two-adic-valuation/driver.ts",
     "copy": "npx ts-node src/copy/driver.ts",
     "dsa-dynamic-arrays": "npx ts-node src/dsa/dyanmic-arrays/driver.ts",
-    "find-peak": "npx ts-node src/dsa/find-peak/driver.ts"
+    "find-peak": "npx ts-node src/dsa/find-peak/driver.ts",
+    "knapsack": "npx ts-node src/dsa/dynamic-programming/knapsack.ts"
   },
   "keywords": [],
   "author": "",
